@@ -8,6 +8,8 @@ const deleiveryDate = today.add(7,'days');
 
 console.log(deleiveryDate.format('dddd, MMMM D'));
 
+function renderOrderSummary(){
+
 
 let cartSummaryHTML = '';
 cart.forEach((cartItem) =>{
@@ -123,6 +125,7 @@ document.querySelectorAll('.js-delivery-option').forEach((element) =>{
   element.addEventListener('click',() =>{
     const {productId,deliveryOptionId} = element.dataset
 updateDeliveryOption(productId,deliveryOptionId);
+renderOrderSummary();
   })
 })
 
@@ -165,4 +168,6 @@ document.querySelectorAll('.save-quantity-link').forEach((saveBtn) =>{
     updateCartQuantity();
   })
   })
-  
+}
+
+renderOrderSummary();
